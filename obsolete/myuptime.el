@@ -1,0 +1,43 @@
+;; inspired by http://www.dedasys.com/freesoftware/files/uptime.el
+
+(defun myuptime-pretty (seconds)
+  (let ((results nil) (div) (mod))
+    (setq div (/ seconds 86400) seconds (% seconds 86400))
+    (when (> div 0)
+      (if (= div 1)
+          (push "1 day" results)
+        (push (format "%d days" div) results)))
+    (setq div (/ seconds 3600) seconds (% seconds 3600))
+    (when (> div 0)
+      (if (= div 1)
+          (push "1 hour" results)
+        (push (format "%d hours" div) results)))
+    (setq div (/ seconds 60) seconds (% seconds 60))
+    (when (> div 0)
+      (if (= div 1)
+          (push "1 minute" results)
+        (push (format "%d minutes" div) results)))
+    (setq div (/ seconds 60) seconds (% seconds 60))
+    (when (> div 0)
+      (if (= div 1)
+          (push "1 second" results)
+        (push (format "%d seconds" div) results)))
+    (if results
+        (mapconcat 'identity (nreverse results) ", ")
+      "just started")))
+
+(defun myuptime ()
+  (interactive)
+  (if (eq system-type 'gnu/linux)
+      (message (myuptime-pretty (myuptime-get-proc-stat)))
+    (error "this works only for gnu/linux systems")))
+
+(defun myuptime-get-proc-stat ()
+  (let ((start-time (with-temp-buffer
+                      (insert-file-contents (format "/proc/%d/stat" (emacs-pid)))
+                      (nth 21 (split-string (buffer-string)))))
+        (system-up-time (with-temp-buffer
+                          (insert-file-contents "/proc/uptime")
+                          (car (split-string (buffer-string))))))
+    (round (- (string-to-number system-up-time)
+              (/ (string-to-number start-time) 100)))))
