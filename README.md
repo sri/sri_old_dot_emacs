@@ -1,6 +1,7 @@
-These are my GNU Emacs init files.
+My old GNU Emacs init files.
 
-I used Emacs heavily from 1998 - 2004 or so.
+I used Emacs heavily from 1998 - 2004 or so. But I haven't used it much since then.
+But once in a while, I get that itch to give it a go once again.
 
 Some interesting things you can find here:
  * My ~/.emacs loaded setup.el which then loaded all the other files
@@ -12,7 +13,3 @@ Some interesting things you can find here:
    So I would type C-x C-f v to view a file. In retrospect, this was probably a
    very bad idea!
  * I swap Shift & Control: http://defcraft.blogspot.com/2007/07/my-dot-emacs-shift-to-control.html. So uppercase A would be beginning-of-line and Ctrl-a would insert the letter A.
-
-By 2004 or so, I was burned out from using Emacs. Partly due to all the
-customizations I had made to it. These days I use a combination of
-Sublime Text 2, Vim and Emacs.
