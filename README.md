@@ -13,3 +13,5 @@ Some interesting things you can find here:
    So I would type C-x C-f v to view a file. In retrospect, this was probably a
    very bad idea!
  * I swap Shift & Control: http://defcraft.blogspot.com/2007/07/my-dot-emacs-shift-to-control.html. So uppercase A would be beginning-of-line and Ctrl-a would insert the letter A.
+
+Released under the MIT License.
