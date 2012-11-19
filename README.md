@@ -1,9 +1,7 @@
 My old GNU Emacs init files.
 
 I used Emacs heavily from 1998 - 2004 or so. But I haven't used it much since then.
-That's mainly because whenever I spend more than a couple of hours typing and
-invoking commands, my hands and fingers start to hurt :-( This doesn't happen
-with any other editor! 
+But every now and then I get the urge to go back and give it a go.
 
 Some interesting things you can find here:
  * My ~/.emacs loaded setup.el which then loaded all the other files
